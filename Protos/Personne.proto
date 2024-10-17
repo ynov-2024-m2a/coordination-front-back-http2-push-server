@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package Personnes;
+
+import "google/protobuf/Timestamp.proto";
+
+message PersonneAjouterRequete
+{
+	string nom = 1;
+	string prenom = 2;
+	int32 age = 3;
+
+	google.protobuf.Timestamp dateNaissance = 4;
+}
+
+message PersonneInfo
+{
+	int32 id = 1;
+	string nom = 2;
+	string prenom = 3;
+	int32 age = 4;
+
+	google.protobuf.Timestamp dateNaissance = 5;
+}
+
+message PersonneListerReponse
+{
+	repeated PersonneInfo liste = 1;
+}
+
+message PersonneReponse
+{
+	int32 id = 1;
+}
+
+service Personne
+{
+	rpc Ajouter(PersonneAjouterRequete) returns (PersonneReponse);
+}
