@@ -22,4 +22,25 @@ public class MathServiceImpl: MathPersoBase
             });
         }
     }
+
+    public override async Task<Resultat> Addiction(IAsyncStreamReader<Nombre> requestStream, ServerCallContext context)
+    {
+        int total = 0;
+
+        while(await requestStream.MoveNext())
+            total += requestStream.Current.Chiffre;
+
+        return new Resultat { Total = total };
+    }
+
+    public override async Task Calcul(IAsyncStreamReader<Nombre> requestStream, IServerStreamWriter<Resultat> responseStream, ServerCallContext context)
+    {
+        int total = 0;
+
+        while (await requestStream.MoveNext())
+        {
+            total += requestStream.Current.Chiffre;
+            await responseStream.WriteAsync(new Resultat { Total = total });
+        }
+    }
 }

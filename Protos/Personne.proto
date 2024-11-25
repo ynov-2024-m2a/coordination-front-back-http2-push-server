@@ -3,6 +3,7 @@ syntax = "proto3";
 package Personnes;
 
 import "google/protobuf/Timestamp.proto";
+import "google/protobuf/Empty.proto";
 
 message PersonneAjouterRequete
 {
@@ -11,6 +12,16 @@ message PersonneAjouterRequete
 	int32 age = 3;
 
 	google.protobuf.Timestamp dateNaissance = 4;
+}
+
+message PersonneConnexionRequete
+{
+	string mail = 1;
+}
+
+message PersonneConnexionReponse
+{
+	string jwt = 1;
 }
 
 message PersonneInfo
@@ -36,4 +47,6 @@ message PersonneReponse
 service Personne
 {
 	rpc Ajouter(PersonneAjouterRequete) returns (PersonneReponse);
+	rpc Connexion(PersonneConnexionRequete) returns (PersonneConnexionReponse);
+	rpc Proteger(google.protobuf.Empty) returns (PersonneReponse);
 }
