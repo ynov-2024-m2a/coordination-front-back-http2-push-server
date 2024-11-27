@@ -14,7 +14,7 @@ const server = http2.createSecureServer(options);
 server.on('stream', async (stream, headers) => {
   const filePath = headers[':path'];
 
-  await delay(30);
+  await delay(300);
 
   if (filePath === '/with-preload') {
     stream.respondWithFile(path.join(__dirname, 'with-preload.html'), {
