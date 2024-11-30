@@ -1,0 +1,35 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    font-family: 'Lora', serif;
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    height: auto;
+}
+
+/* Font-face declarations */
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/assets/Lora-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

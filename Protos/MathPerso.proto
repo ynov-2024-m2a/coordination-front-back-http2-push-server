@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package MathPerso;
+
+message Nombre
+{
+	int32 chiffre = 1;
+}
+
+message Resultat
+{
+	int64 total = 1;
+}
+
+service MathPerso
+{
+	rpc Factorielle(Nombre) returns (stream Resultat);
+	rpc Addiction(stream Nombre) returns (Resultat);
+	rpc Calcul(stream Nombre) returns (stream Resultat);
+}

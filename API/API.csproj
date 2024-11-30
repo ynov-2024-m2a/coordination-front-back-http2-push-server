@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Grpc.AspNetCore" Version="2.66.0" />
+	  <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.66.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Protobuf Include="..\Protos\MathPerso.proto" GrpcServices="Server">
+	    <Link>Protos\MathPerso.proto</Link>
+	  </Protobuf>
+	  <Protobuf Include="..\Protos\Personne.proto" GrpcServices="Server">
+	    <Link>Protos\Personne.proto</Link>
+	  </Protobuf>
+	</ItemGroup>
+
+</Project>
